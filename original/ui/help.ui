@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HelpWindow</class>
+ <widget class="QDialog" name="HelpWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>504</width>
+    <height>420</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Kroket - Help</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="kroket.qrc">
+    <normaloff>:/resources/gfx/kroket-icon.svg</normaloff>:/resources/gfx/kroket-icon.svg</iconset>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout">
+   <item>
+    <widget class="QTextBrowser" name="textBrowser">
+     <property name="documentTitle">
+      <string>Help of Kroket</string>
+     </property>
+     <property name="source">
+      <url>
+       <string>qrc:/resources/doc/help.html</string>
+      </url>
+     </property>
+     <property name="searchPaths">
+      <stringlist/>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout">
+     <item>
+      <spacer>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnClose">
+       <property name="text">
+        <string>Close</string>
+       </property>
+       <property name="icon">
+        <iconset resource="kroket.qrc">
+         <normaloff>:/resources/gfx/close.png</normaloff>:/resources/gfx/close.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="kroket.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>btnClose</sender>
+   <signal>clicked()</signal>
+   <receiver>HelpWindow</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>349</x>
+     <y>275</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

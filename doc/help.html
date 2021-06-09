@@ -1,0 +1,82 @@
+<html lang="eng">
+<head>
+<title>Help of Kroket</title>
+</head>
+<body>
+<h1>Help of Kroket</h1>
+<h2>Kroket Controls</h2>
+<p>
+Ctrl + O : Open a file<br>
+Ctrl + P : Print<br>
+Ctrl + H : Help<br>
+Ctrl + Q : Quit<br><br>
+
+Ctrl + Z : Undo previous action<br>
+Ctrl + Y : Redo<br><br>
+
+= : Zoom-in<br>
+- : Zoom-out<br>
+Backspace : Fit view<br>
+F5 : Reset / reload view<br><br>
+
+Ctrl key + Left button pressed : drag the view.<br>
+Ctrl key + Mousewheel : zoom-in / zoom-out (centered on the mouse cursor).<br><br>
+
+Left button pressed on a node : free move.<br><br>
+Left button click on a <i>partial</i> edge : show the deactivated node.<br>
+Left button click on a <i>full</i> edge : hide the target node of the edge (and the nodes below).<br>
+Left button double-click on a node : start tracing from this node.<br><br>
+Right button click on a group : switch the state  (<i>expanded</i> / <i>collapsed</i>) of the group.
+</p><br>
+
+<h2>Tagging</h2>
+Kroket enables you to assign tags to nodes through the <i>tags</i> attribute of the <i>node</i> entity, see kroket's graph description language.<br>
+Then, you are able to filter (show/hide) the nodes which match a given tag.<br><br>
+<u>From the command line :</u>
+<p><ul>
+<li><font face="monospace">-w TAG, --with=TAG : show only nodes with the specified tag</font>
+<li><font face="monospace">-W TAG, --without=TAG : show only nodes without the specified tag</font>
+</ul></p>
+<u>From the user interface :</u>
+<p><ul>
+<li>Input a tag in the text entry and press the <i>filter</i> button. This will show only the nodes <b>with</b> the specified tag.
+<li>Input a '!' followed by a tag in the text entry and press the <i>filter</i> button. This will show only the nodes <b>without</b> the specified tag.
+</ul></p><br>
+
+<h2>Tracing</h2>
+An edge has two states : it can be either <i>full</i> or <i>partial</i>.<br>
+The <i>full</i> state is activated when both nodes linked by the edge are visible/activated.<br>
+The <i>partial</i> state is activated when only one node is visible.<br>
+The switch from one mode to the other can be done by clicking on the edge.<br><br>
+<u>From the command line :</u>
+<p><ul>
+<li><font face="monospace">-t ID, --trace=ID : trace from the specified node</font>
+</ul></p>
+<u>From the user interface :</u>
+<p><ul>
+<li>Left click on a <i>partial</i> edge will activate the node which was previously hidden.
+<li>Left click on an <i>full</i> edge will deactivate the destination node of the edge and hide all the nodes below it.
+<li>Left button double-click on a node : start tracing from this node.
+<li>Input a node ID in the text entry and press the <i>trace</i> button. This will make the edges of this node switch to <i>partial</i> state.
+</ul></p><br>
+
+<h2>Grouping</h2>
+A group has two states : it can be either <i>expanded</i> or <i>collapsed</i>.<br>
+When displayed <i>expanded</i>, the group is shown as a background hull behind the nodes it contains.<br>
+When displayed <i>collapsed</i>, the group is show as a node and its content is hidden.<br><br>
+<u>From the command line :</u>
+<p><ul>
+<li><font face="monospace">-E, --expand-all : expand all the groups</font>
+<li><font face="monospace">-e ID, --expand=ID : expand the specified group</font>
+<li><font face="monospace">-C, --collapse-all : collapse all the groups (default)</font>
+<li><font face="monospace">-c ID, --collapse=ID : collapse the specified group</font>
+</ul></p>
+<u>From the user interface :</u>
+<p><ul>
+<li>Right button click on a group : switch the state  (<i>expanded</i> / <i>collapsed</i>) of the group.
+<li>Click on the <i>expand all</i> button to expand all the groups.
+<li>Click on the <i>collapse all</i> button to collapse all the groups.
+</ul></p>
+<br>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<RCC>
+  <qresource prefix="/resources">
+    <file>../gfx/kroket-icon.svg</file>
+    <file>../gfx/kroket-example.png</file>
+    <file>../doc/kroket-format.html</file>
+    <file>../doc/help.html</file>
+    <file>../gfx/close.png</file>
+    <file>../gfx/collapse.png</file>
+    <file>../gfx/expand.png</file>
+    <file>../gfx/export-image.png</file>
+    <file>../gfx/filter.png</file>
+    <file>../gfx/find.png</file>
+    <file>../gfx/help.png</file>
+    <file>../gfx/home.png</file>
+    <file>../gfx/open.png</file>
+    <file>../gfx/print.png</file>
+    <file>../gfx/quit.png</file>
+    <file>../gfx/redo.png</file>
+    <file>../gfx/reset.png</file>
+    <file>../gfx/undo.png</file>
+    <file>../gfx/zoom-fit.png</file>
+    <file>../gfx/zoom-in.png</file>
+    <file>../gfx/zoom-out.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,29 @@
+	Kroket release 0.8.1
+
+These are the release notes for Kroket version 0.8.1
+Read them carefully, as they tell you what this is all about.
+
+
+WHAT IS KROKET ?
+
+ Kroket is an interactive directed graph visualization tool.
+ It allows you to progressively unfold the graph and to expand/collapse
+ groups of nodes.
+
+ Kroket is a free software, it is licensed under the GNU GPL.
+ Have a look at the `COPYING' file for details.
+
+ In order to run Kroket, you need the Qt library, as well as its development
+ packages if you compile it by yourself.
+
+
+HOW TO INSTALL ?
+
+ Instructions to install kroket are details in the `INSTALL' file.
+
+
+HOW TO RUN ?
+
+ Once you have compiled the program, you should be able to run it by
+ invoking `kroket'. Don't hesitate to try one of the files contained in
+ the `tests' subdirectory to view what Kroket's capable of.

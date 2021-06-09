@@ -1,0 +1,120 @@
+<html lang="eng">
+<head>
+<title>Kroket Graph Description Language</title>
+</head>
+<body>
+<h1>Kroket Graph Description Language</h1>
+
+<h2>Overall Conventions</h2>
+Graphs are defined using a custom markup language.<br/>
+Each markup describes an entity of the graph that can be parametrized using attributes.<br/>
+Markups start with a <font face="monospace">&lt;</font> character, which must be followed by the name of the entity.<br/>
+Markups end with the <font face="monospace">/&gt;</font> character sequence.
+<pre>&lt;entity  /&gt;</pre>
+Attributes of an entity must be described within its markup delimiters.<br/>
+The format is the following: <font face="monospace">name="value"</font>  <font size="-1">(<i>name</i> is the attribute's name and <i>value</i> its value)</font>.<br/>
+The value of an attribute must be quoted.<br/>
+
+<h2>Example</h2>
+<table border="0">
+<tr><td>
+<img alt="example" src=":/resources/gfx/kroket-example.png"/></td><td valign="middle">
+<pre>
+&lt;info title="Example" date="02/06/2010" /&gt;
+&lt;node id="n0" shape="circle" text="entry" text_style="bold" fill_color="#a9c3c3" /&gt;
+&lt;node id="n1" text="exit" text_color="red" stroke_style="dots" /&gt;
+&lt;edge id="e0" src_port="n0" src_style="open_dot" dest_port="n1" stroke_width="2" /&gt;
+&lt;group id="g0" contents="[n0, n1]" shape="rectangle" /&gt;
+</pre></td></tr></table>
+
+<h2>Available entities</h2>
+
+<h3>info entity</h3>
+The <i>info</i> entity is intended to contain general information related to the graph.<br/>
+There should be only one <i>info</i> entity in a graph file.<br/>
+<br/>
+Attributes of the <i>info</i> entity:</br>
+<table border="1" cellpadding="4">
+<colgroup><col /><col /><col /><col /><col /><col /></colgroup>
+<tr><td><b>Name</b></td><td><b>Description</b></td><td><b>Type</b></td><td><b>Example</b></td><td><b>Mandatory</b></td><td><b>Default</b></td></tr>
+<tr><td>title</td><td>Title of the graph</td><td>string</td><td>graph00</td><td>yes</td><td>n/a</td></tr>
+<tr><td>comments</td><td>Short description of the graph</td><td>string</td><td>bla bla bla</td><td>no</td><td>empty</td></tr>
+<tr><td>date</td><td>Date of creation or last modification</td><td>string</td><td>27/11/2010</td><td>no</td><td>empty</td></tr>
+<tr><td>revision</td><td>Revision number</td><td>string</td><td>1.0</td><td>no</td><td>empty</td></tr>
+</table>
+
+<h3>node entity</h3>
+The <i>node</i> entity describes a node of the graph.<br/>
+Nodes are identified with a unique ID which should be different of any other ID used in the file.<br/>
+The number of nodes is unlimited.<br/><br/>
+Attributes of the <i>node</i> entity:</br>
+<table border="1" cellpadding="4">
+<colgroup><col /><col /><col /><col /><col /><col /></colgroup>
+<tr><td><b>Name</b></td><td><b>Description</b></td><td><b>Type</b></td><td><b>Example</b></td><td><b>Mandatory</b></td><td><b>Default</b></td></tr>
+<tr><td>id</td><td>ID of the node</td><td>string</td><td>node00</td><td>yes</td><td>n/a</td></tr>
+<tr><td>shape</td><td>Shape of the node</td><td>node shape</td><td>rectangle</td><td>no</td><td>ellipse</td></tr>
+<tr><td>tags</td><td>Tags of the node</td><td>list of strings</td><td>[mammal, cat]</td><td>no</td><td>[ ]</td></tr>
+</table>
+<ul><li>Node shapes { rectangle, circle, ellipse }</li></ul>
+The <i>tags</i> attribute enables the assignment of keywords to a node. This can be used for filtering purposes.<br/>
+
+<h3>edge entity</h3>
+The <i>edge</i> entity describes an edge of the graph. An <i>edge</i> connects two nodes.<br/>
+Edges are identified with a unique ID which should be different of any other ID used in the file.<br/>
+The number of edges is unlimited.<br/><br/>
+Attributes of the <i>edge</i> entity:</br>
+<table border="1" cellpadding="4">
+<colgroup><col /><col /><col /><col /><col /><col /></colgroup>
+<tr><td><b>Name</b></td><td><b>Description</b></td><td><b>Type</b></td><td><b>Example</b></td><td><b>Mandatory</b></td><td><b>Default</b></td></tr>
+<tr><td>id</td><td>ID of the edge</td><td>string</td><td>edge00</td><td>yes</td><td>n/a</td></tr>
+<tr><td>src_port</td><td>Name of the source node's port the edge connects to</td><td>port name</td><td>node01/input</td><td>yes</td><td>n/a</td></tr>
+<tr><td>dest_port</td><td>Name of the destination node's port the edge connects to</td><td>port name</td><td>node00/output</td><td>yes</td><td>n/a</td></tr>
+<tr><td>src_style</td><td>Style of the connection to the source node</td><td>connection style</td><td>closed_dot</td><td>no</td><td>line</td></tr>
+<tr><td>dest_style</td><td>Style of the connection to the destination node</td><td>connection style</td><td>dot</td><td>no</td><td>arrow</td></tr>
+<tr><td>src_text</td><td>Label of the source's port</td><td>string</td><td>data Y out</td><td>no</td><td>empty</td></tr>
+<tr><td>dest_text</td><td>Label of the destination's port</td><td>string</td><td>data X in</td><td>no</td><td>empty</td></tr>
+</table>
+<ul><li>Edge connection styles { line, arrow, closed_dot, closed_dot_arrow, open_dot, open_dot_arrow }</li></ul>
+
+<h3>group entity</h3>
+The <i>group</i> entity describes a group.<br/>
+A <i>group</i> contains nodes which in some way - according to the semantic of the graph - are related to each other.
+It may contain subgroups as well.<br/>
+The number of <i>group</i> entities is limited by the number of nodes, as a <i>node</i> can not belong directly to two groups at the same time. Otherwise, it is virtually unlimited.<br/><br/>
+Attributes of the <i>group</i> entity:</br>
+<table border="1" cellpadding="4">
+<colgroup><col /><col /><col /><col /><col /><col /></colgroup>
+<tr><td><b>Name</b></td><td><b>Description</b></td><td><b>Type</b></td><td><b>Example</b></td><td><b>Mandatory</b></td><td><b>Default</b></td></tr>
+<tr><td>id</td><td>ID of the group</td><td>string</td><td>grp00</td><td>yes</td><td>n/a</td></tr>
+<tr><td>contents</td><td>IDs of the edges and nodes of the group</td><td>List of IDs</td><td>[node00, grp01, node01]</td><td>yes</td><td>n/a</td></tr>
+<tr><td>shape</td><td>Shape of the group</td><td>group shape</td><td>ellipse</td><td>no</td><td>rectangle</td></tr>
+<tr><td>expanded</td><td>State of the group</td><td>boolean</td><td>false</td><td>no</td><td>true</td></tr>
+</table>
+<ul><li>Group shapes { rectangle, ellipse }</li></ul>
+The contents attribute of a <i>group</i> must be enumerated in a comma separated list.<br/>
+
+<h2>Extra Attributes</h2>
+The <i>node</i>, <i>edge</i>, and <i>group</i> entities share extra facultative attributes (mainly used for visual customization).<br/><br/>
+<table border="1" cellpadding="4">
+<colgroup><col /><col /><col /><col /><col /><col /></colgroup>
+<tr><td><b>Name</b></td><td><b>Description</b></td><td><b>Type</b></td><td><b>Example</b></td><td><b>Default</b></td></tr>
+<tr><td>fill_color</td><td>Color used for filling</td><td>string</td><td>red or #ff0000</td><td>white</td></tr>
+<tr><td>fill_style</td><td>Style of the filling</td><td>filling style</td><td>solid</td><td>solid</td></tr>
+<tr><td>stroke_color</td><td>Color used for stroking</td><td>string</td><td>green or #00ff00</td><td>black</td></tr>
+<tr><td>stroke_style</td><td>Style of the stroking</td><td>stroking style</td><td>dashes</td><td>solid</td></tr>
+<tr><td>stroke_width</td><td>Width of the stroking</td><td>integer</td><td>3</td><td>1</td></tr>
+<tr><td>text</td><td>Label content</td><td>string</td><td>bla bla bla</td><td>empty</td></tr>
+<tr><td>text_color</td><td>Font color used for the label</td><td>string</td><td>blue or #0000ff</td><td>black</td></tr>
+<tr><td>text_style</td><td>Font style used for the label</td><td>label style ID</td><td>bold</td><td>normal</td></tr>
+<tr><td>text_size</td><td>Font size used for the label</td><td>integer</td><td>8</td><td>10</td></tr>
+</table>
+<ul><li>Fill styles { nofill, solid, dots, cross }</li>
+<li>Stroke styles { nostroke, solid, dashes, dots }</li>
+<li>Text styles { normal, italic, bold }</li></ul>
+A color is either a keyword or a numerical RGB specification.
+<ul><li>Color keywords are: {red, blue, green, cyan, yellow, orange, white, black, gray}</li></ul>
+The format of an RGB value in hexadecimal notation is a # character immediately followed by six hexadecimal characters.<br/>
+Each pair of hexadecimal values represents the Red, Green or Blue component as in the following string: #<font color="#ff0000">rr</font><font color="#00ff00">gg</font><font color="#0000ff">bb</font><br/>
+<br/>
+</body>
+</html>

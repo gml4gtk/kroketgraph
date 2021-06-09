@@ -1,0 +1,31 @@
+  Kroket installation instructions
+
+These are the installation guidelines for kroket.
+
+
+REQUIREMENTS
+
+ The only dependency on which Kroket relies is the Qt library.
+ It is installed by default on most of (GNU)Linux distributions.
+ Make sure you have the development packages (notably qmake) of Qt
+ before trying to compile Kroket.
+
+
+HOW TO PROCEED
+
+ Well, it's pretty simple:
+
+ $ qmake
+
+ This will generate the Makefiles. You may modify the compiler's flags
+ by editing the last lines of `kroket.pro'.
+
+ $ make
+
+ This will build Kroket.
+ When done, you can eventually copy the generated executable in a bin directory.
+
+ $ cp kroket ~/.local/bin
+ $ sudo cp kroket /usr/bin
+
+ Or anything like that should do.

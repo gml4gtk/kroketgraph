@@ -1,0 +1,42 @@
+2010-12-03 Nicolas BENOIT <nbenoit@tuxfamily.org>
+
+	* README, kroket.pro: 0.8.1 release.
+
+
+2010-11-15 Nicolas BENOIT <nbenoit@tuxfamily.org>
+
+	* src/application.cpp, src/graphview.h: Simplified main window and tabs titling.
+	* src/application.cpp: Enabled the selection of multiple files in the Open File dialog.
+	* src/main.cpp: Added support for more than one input file in the command line.
+	* gfx/kroket-icon.svg: Improved.
+	* ui/help-about.ui, ui/help-input.ui, ui/help.ui: Set application icon and fixed titles.
+	* ui/kroket.ui: Fixed main menu items text.
+
+
+2010-11-12 Nicolas BENOIT <nbenoit@tuxfamily.org>
+
+	* gfx/kroket-icon.svg: Added.
+	* ui/help-about.ui: Added application logo.
+	* ui/kroket.ui: Added application icon.
+
+
+2010-11-12 Nicolas BENOIT <nbenoit@tuxfamily.org>
+
+	* src/graphviewtab.cpp, src/graphviewtab.h: Added.
+	* kroket.pro: Added GraphViewTab files.
+	* src/application.cpp, src/application.h: Adapted to tabbed GraphView.
+	* src/main.cpp: Adapated to tabbed GraphView.
+	* src/graphview.cpp, src/graphview.h: Added getLongTitle() and QFileInfo.
+	* ui/kroket.ui: Replaced static graph view and search bar with a QTabWidget.
+
+
+2010-11-11 Nicolas BENOIT <nbenoit@tuxfamily.org>
+
+	* src/parser/entitylist.cpp: Added alternative file reading path for MS Windows.
+	* src/graph/node.h: Added index alias with strchr for MS Windows.
+	* kroket.pro: Added MS Windows detection.
+
+
+2010-11-07 Nicolas BENOIT <nbenoit@tuxfamily.org>
+
+	* README, kroket.pro: 0.8.0 release.
