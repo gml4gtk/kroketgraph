@@ -1,7 +1,7 @@
 # kroketgraph
 graphical graph visualization viewer with qt gui and subgraph folding feature
 
-This is GNU GPL Free C++ graph viewer with graphicl user interface updated for qt lib version 5.  
+This is GNU GPL Free C++ graph viewer with graphical user interface updated for qt lib version 5.  
 
  Kroket is an interactive directed graph visualization tool.  
  It allows you to progressively unfold the graph and to expand/collapse  
@@ -20,6 +20,7 @@ make
 The original version is in directory original for the older qt lib versions.  
   
 The program uses own custom graph format which looks like this in the tests directory:  
+~~~text
 <info />  
 <node id="z" text="Z" />  
 <node id="x" text="X" />  
@@ -27,6 +28,7 @@ The program uses own custom graph format which looks like this in the tests dire
 <edge src_port="x" dest_port="y" />  
 <edge src_port="y" dest_port="z" />  
 <edge src_port="z" dest_port="x" />  
+~~~
   
 For other graph formats the parser in directory src/parser need to be updated  
 This tool can have multiple graphs in the gui using tabs at same time to easy switch between graphs  
